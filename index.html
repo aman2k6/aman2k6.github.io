@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07080b">
+<meta name="description" content="Aman Lad: Data Science student at NMIMS MPSTME. Analytics, systems and ideas.">
+<title>Aman Lad | Data Science</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080b;--panel:rgba(14,15,22,.7);--tx:#f3f4f8;--mu:#a0a4b4;--ln:rgba(243,244,248,.13);--uv:#8a5cff;--bl:#3c7bff;--ac:#c7f36b;--d:"Bricolage Grotesque",Impact,sans-serif;--b:"DM Sans",system-ui,sans-serif;--e:cubic-bezier(.2,.8,.2,1);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 1rem/1.65 var(--b);overflow-x:hidden}
+/* Quiet edge details: a little structure in the negative space without competing with content. */
+.edge-atmosphere{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;opacity:.62}
+.edge-atmosphere::before,.edge-atmosphere::after{content:"";position:absolute;top:18%;bottom:18%;width:1px;background:linear-gradient(180deg,transparent,rgba(138,92,255,.22) 22%,rgba(243,244,248,.08) 52%,rgba(199,243,107,.22) 78%,transparent)}
+.edge-atmosphere::before{left:clamp(18px,3.2vw,52px)}
+.edge-atmosphere::after{right:clamp(18px,3.2vw,52px)}
+.edge-mark{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--ac);opacity:.65;box-shadow:0 0 12px rgba(199,243,107,.32)}
+.edge-mark.one{left:clamp(16px,3.05vw,50px);top:29%}.edge-mark.two{right:clamp(16px,3.05vw,50px);top:67%;background:var(--uv);box-shadow:0 0 12px rgba(138,92,255,.35)}
+.edge-caption{position:absolute;right:clamp(28px,4.4vw,72px);top:35%;writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(160,164,180,.48)}
+@media(max-width:1200px){.edge-atmosphere{opacity:.38}.edge-caption{display:none}}
+@media(max-width:760px){.edge-atmosphere{display:none}}
+a{color:inherit;text-decoration:none}:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:6px}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;transition:opacity .8s}
+.fb{position:fixed;inset:0;z-index:0;background:radial-gradient(40% 40% at 70% 40%,rgba(138,92,255,.4),transparent 70%);display:none}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+header,main,footer{position:relative;z-index:2}.w{width:min(1100px,calc(100% - 36px));margin:0 auto}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(7,8,11,.65);backdrop-filter:blur(14px);border-bottom:1px solid var(--ln);transform:translateY(0);opacity:1;transition:transform .35s var(--e),opacity .25s ease}.nav.nav-away{transform:translateY(-110%);opacity:0;pointer-events:none}
+.nav .w{display:flex;justify-content:space-between;align-items:center;min-height:60px}
+.brand{font:800 1.05rem var(--d);letter-spacing:-.03em}.links{display:flex;gap:20px;font-size:.86rem;color:var(--mu);overflow-x:auto}
+.links a{padding:4px 0;border-bottom:1px solid transparent;white-space:nowrap;transition:.2s}.links a.on{color:var(--tx);border-color:var(--ac)}.links a:hover{color:var(--tx)}
+#bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:linear-gradient(90deg,var(--uv),var(--bl),var(--ac));transform-origin:0 50%;transform:scaleX(0)}
+@media(max-width:700px){.brand{display:none}.links{gap:16px}}
+section{padding:110px 0}
+.hero{min-height:calc(100svh - 60px);display:flex;flex-direction:column;justify-content:center;padding:50px 0 70px}
+.tag{font-size:.84rem;color:var(--ac);margin-bottom:22px}
+h1{font:800 clamp(3.4rem,13vw,10.5rem)/.86 var(--d);letter-spacing:-.055em;margin:0 0 28px;text-transform:uppercase}
+h1 span{display:block}h1 span:nth-child(2){-webkit-text-stroke:1.2px var(--tx);color:transparent;letter-spacing:0;-webkit-text-stroke-width:1.2px;paint-order:stroke fill}h1 span:nth-child(3){background:linear-gradient(90deg,var(--uv),var(--bl));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{max-width:31rem;color:var(--mu);font-size:1.1rem}.lede b{color:var(--tx);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;min-height:46px;border-radius:999px;padding:0 24px;border:1px solid var(--ln);background:transparent;color:var(--tx);font:500 .95rem var(--b);cursor:pointer;transition:background .25s,transform .25s var(--e)}
+.btn:hover{background:rgba(243,244,248,.09)}.btn.p{background:var(--tx);color:#0b0c10;border-color:var(--tx)}.btn.p:hover{background:var(--ac)}
+.scroll{position:absolute;bottom:22px;left:0;font-size:.78rem;color:var(--mu);display:flex;align-items:center;gap:10px}.scroll i{width:1px;height:34px;background:linear-gradient(var(--ac),transparent);display:block}
+h2{font:800 clamp(2rem,5.5vw,4rem)/1 var(--d);letter-spacing:-.045em;margin:0 0 34px;max-width:15ch}
+.rv{will-change:transform}
+@media(prefers-reduced-motion:no-preference){.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--e),transform .9s var(--e)}.rv.in{opacity:1;transform:none}.hero .rv{transition-delay:.15s}.hero .rv:nth-child(2){transition-delay:.3s}.hero .rv:nth-child(3){transition-delay:.45s}.hero .rv:nth-child(4){transition-delay:.6s}}
+.glass{background:var(--panel);backdrop-filter:blur(8px);border:1px solid var(--ln);border-radius:22px}
+.ab{display:grid;grid-template-columns:1.3fr 1fr;gap:40px}.ab p{color:var(--mu);margin:0 0 1.1em;max-width:34rem}.ab p b{color:var(--tx);font-weight:500}
+.big{font:800 clamp(1.6rem,3.5vw,2.5rem)/1.15 var(--d);letter-spacing:-.03em;margin:0 0 24px}.big em{font-style:normal;color:var(--ac)}
+.facts{padding:24px;align-self:start;display:grid;gap:14px;font-size:.92rem}.facts div{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid var(--ln);padding-bottom:12px}.facts div:last-child{border:0;padding:0}.facts span{color:var(--mu)}.facts b{font-weight:500;text-align:right}
+.proj{display:grid;gap:18px}.pj{display:grid;grid-template-columns:1.1fr 1fr;min-height:340px;overflow:hidden;cursor:pointer;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s,border-color .3s;text-align:left;color:inherit;font:inherit;padding:0;width:100%}
+.pj:hover{border-color:rgba(138,92,255,.7)}.pj:nth-child(even){grid-template-columns:1fr 1.1fr}.pj:nth-child(even) .art{order:2}
+.art{position:relative;background:radial-gradient(70% 70% at 30% 30%,rgba(138,92,255,.28),transparent),radial-gradient(60% 60% at 80% 90%,rgba(60,123,255,.22),transparent),#0c0d14;display:grid;place-items:center;min-height:220px}
+.art svg{width:78%;max-height:80%;stroke:var(--mu);fill:none;stroke-width:1.5;transition:.4s var(--e)}.art svg .h{stroke:var(--ac);fill:var(--ac)}.pj:hover .art svg{transform:scale(1.07);stroke:var(--tx)}
+.pb{padding:34px;display:flex;flex-direction:column;justify-content:center;gap:12px}.cat{font-size:.82rem;color:var(--ac)}.pb h3{font:800 clamp(1.5rem,3vw,2.1rem)/1.05 var(--d);letter-spacing:-.04em;margin:0}.pb p{margin:0;color:var(--mu);font-size:.96rem}.st{font-size:.8rem;color:var(--uv);border:1px solid rgba(138,92,255,.5);border-radius:999px;padding:3px 11px;width:fit-content}.more{color:var(--tx);font-weight:500;font-size:.92rem}
+@media(max-width:760px){.ab,.pj,.pj:nth-child(even){grid-template-columns:1fr}.pj:nth-child(even) .art{order:0}section{padding:76px 0}.art{min-height:170px}}
+dialog{width:min(860px,calc(100% - 24px));max-height:88vh;background:#0b0c12;color:var(--tx);border:1px solid var(--ln);border-radius:20px;padding:0;overflow:auto}
+dialog::backdrop{background:rgba(3,3,6,.8);backdrop-filter:blur(6px)}dialog[open]{animation:op .5s var(--e)}@keyframes op{from{opacity:0;transform:translateY(40px) scale(.97)}}
+.dh{padding:34px 34px 24px;border-bottom:1px solid var(--ln);background:linear-gradient(120deg,rgba(138,92,255,.25),transparent 60%);position:relative}.dh h3{font:800 clamp(1.8rem,5vw,3rem)/1 var(--d);letter-spacing:-.04em;margin:8px 0 10px}.dh p{margin:0;color:var(--mu);max-width:36rem}
+.x{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--ln);background:transparent;color:var(--tx);font-size:1.2rem;cursor:pointer}.x:hover{background:var(--tx);color:#000}
+.dl{padding:12px 34px 34px;margin:0}.dl div{display:grid;grid-template-columns:11rem 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--ln)}.dl dt{font:500 .86rem var(--b);color:var(--mu)}.dl dd{margin:0}
+.ph{display:inline-block;border:1px dashed rgba(199,243,107,.55);color:var(--ac);border-radius:8px;padding:3px 10px;font-size:.88rem}.val{color:var(--tx)}
+@media(max-width:620px){.dl div{grid-template-columns:1fr;gap:4px}.dh,.dl{padding-left:20px;padding-right:20px}}
+.stick.on{position:static}.stb{opacity:1;transform:none;pointer-events:auto}.stb.vis{opacity:1;transform:none;pointer-events:auto}
+.stick h2{margin-bottom:26px}.stick .pn{min-height:300px}
+@media(max-width:800px){.stick h2{margin-bottom:16px;font-size:1.8rem}.sts{grid-template-columns:repeat(3,1fr);gap:2px}.stb{border-left:0;border-bottom:2px solid var(--ln);padding:10px 6px;justify-content:center}.stb span{display:none}.stb:hover,.stb[aria-selected=true]{padding-left:6px}.stb[aria-selected=true]{border-color:var(--ac)}.stb b{font-size:1rem}.stick .pn{min-height:0;padding:22px}.pp{margin-bottom:16px}.un{padding:14px 20px;margin-top:10px}.un span{font-size:.85rem}}
+@media(prefers-reduced-motion:reduce){.stb{opacity:1;transform:none;pointer-events:auto}}
+.fl{display:grid;grid-template-columns:.85fr 1.3fr;gap:28px;align-items:start}@media(max-width:800px){.fl{grid-template-columns:1fr}}
+.sts{display:grid;gap:4px}.stb{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:none;border:0;border-left:2px solid var(--ln);color:var(--mu);font:500 .95rem var(--b);padding:15px 18px;cursor:pointer;min-height:48px;transition:.3s var(--e)}
+.stb b{font:800 1.2rem var(--d);letter-spacing:-.03em;color:var(--tx)}.stb:hover{border-color:var(--bl);padding-left:24px}.stb[aria-selected=true]{border-color:var(--ac);background:linear-gradient(90deg,rgba(199,243,107,.1),transparent);padding-left:24px}
+.pn{padding:34px;min-height:340px;position:relative;overflow:hidden}.pn::before{content:"";position:absolute;width:320px;height:320px;right:-90px;top:-110px;background:radial-gradient(rgba(138,92,255,.4),transparent 70%);pointer-events:none}
+.pp{display:flex;align-items:center;margin-bottom:26px;position:relative}.pp i{width:11px;height:11px;border-radius:50%;border:1px solid var(--mu);transition:.4s var(--e);flex:none}.pp u{height:1px;flex:1;background:var(--ln);transition:.4s}.pp i.on{background:var(--ac);border-color:var(--ac);box-shadow:0 0 14px var(--ac)}.pp u.on{background:var(--ac)}
+.pn h3{font:800 clamp(1.8rem,4vw,2.8rem)/1 var(--d);letter-spacing:-.045em;margin:0 0 6px;position:relative}.pn .ky{color:var(--ac);font-size:.84rem;margin-bottom:14px;position:relative}.pn p{color:var(--mu);margin:0 0 22px;max-width:32rem;position:relative}
+.tool{display:flex;flex-wrap:wrap;gap:10px;position:relative}.tool span{border:1px solid rgba(199,243,107,.4);color:var(--tx);padding:7px 15px;border-radius:8px;font-size:.92rem;background:rgba(199,243,107,.07);transition:.3s}.tool span:hover{background:var(--ac);color:#10150a}
+.pn.sw .ky,.pn.sw h3,.pn.sw p,.pn.sw .tool{animation:sw .55s var(--e)}@keyframes sw{from{opacity:0;transform:translateY(14px)}}
+.un{margin-top:16px;padding:22px 30px;display:flex;flex-wrap:wrap;gap:12px 30px;align-items:center}.un b{font:800 1.1rem var(--d);letter-spacing:-.03em}.un span{color:var(--mu);font-size:.95rem}.un em{font-style:normal;color:var(--tx)}
+.wd{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.t{padding:24px;min-height:190px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transition:transform .4s var(--e),border-color .3s}.t:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--ac)}
+.t h3{font:800 1.4rem var(--d);margin:0 0 4px;letter-spacing:-.03em;position:relative}.t p{margin:0;color:var(--mu);font-size:.9rem;position:relative}.t::before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-40px;top:-40px;background:radial-gradient(var(--c),transparent 70%);opacity:.55;transition:.5s var(--e)}.t:hover::before{transform:scale(1.5)}
+.t:nth-child(1){grid-column:span 3;--c:var(--uv)}.t:nth-child(2){grid-column:span 3;--c:var(--bl)}.t:nth-child(3),.t:nth-child(4),.t:nth-child(5){grid-column:span 2;--c:var(--ac)}
+@media(max-width:760px){.wd{grid-template-columns:1fr}.t:nth-child(n){grid-column:auto}}
+.tl{position:relative;padding-left:34px;display:grid;gap:34px}.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--uv),var(--ln))}
+.tl div{position:relative}.tl div::before{content:"";position:absolute;left:-34px;top:7px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--uv)}.tl .now::before{background:var(--ac);border-color:var(--ac);box-shadow:0 0 18px var(--ac)}
+.tl small{color:var(--ac);font-size:.82rem}.tl h3{font:800 1.5rem var(--d);margin:4px 0 4px;letter-spacing:-.03em}.tl p{margin:0;color:var(--mu);max-width:36rem}
+.ct{text-align:center;padding:130px 0 90px}.ct h2{max-width:none;font-size:clamp(2.6rem,10vw,8rem);line-height:.9}.ct p{color:var(--mu);max-width:28rem;margin:0 auto 30px}.cl{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.cl .btn.ph{border-style:dashed;color:var(--ac);cursor:default}
+footer{padding:20px 0 40px;color:var(--mu);font-size:.84rem}footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--ln);padding-top:20px}footer button{background:none;border:0;color:var(--mu);cursor:pointer;font:inherit}footer button:hover{color:var(--ac)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* Skills toolkit: static editorial grid, no ratings or proficiency bars. */
+.skill-intro{max-width:42rem;color:var(--mu);margin:-12px 0 30px}
+.skill-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.skill-card{grid-column:span 3;padding:26px;min-height:220px;position:relative;overflow:hidden}
+.skill-card:nth-child(3),.skill-card:nth-child(4){grid-column:span 3}
+.skill-card:last-child{grid-column:span 6;min-height:0}
+.skill-card::after{content:"";position:absolute;width:170px;height:170px;right:-70px;top:-85px;border-radius:50%;background:radial-gradient(circle,var(--glow,rgba(138,92,255,.18)),transparent 70%);pointer-events:none}
+.skill-kicker{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ac);margin:0 0 12px}
+.skill-card h3{font:800 clamp(1.25rem,2.5vw,1.8rem)/1.05 var(--d);letter-spacing:-.035em;margin:0 0 15px;max-width:22ch}
+.skill-card p{color:var(--mu);margin:0 0 18px;max-width:48rem;font-size:.94rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tags span{border:1px solid var(--ln);border-radius:999px;padding:6px 10px;font-size:.82rem;color:var(--tx);background:rgba(243,244,248,.025)}
+.skill-card:nth-child(2){--glow:rgba(60,123,255,.2)}.skill-card:nth-child(3){--glow:rgba(199,243,107,.15)}.skill-card:nth-child(4){--glow:rgba(138,92,255,.18)}.skill-card:nth-child(5){--glow:rgba(60,123,255,.16)}
+@media(max-width:760px){.skill-grid{grid-template-columns:1fr}.skill-card,.skill-card:nth-child(n){grid-column:auto;min-height:0;padding:22px}.skill-card:last-child{grid-column:auto}}
+
+/* Quiet left-side section tracker: shows the current destination without competing with the page. */
+.current-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.current-card{padding:26px;min-height:230px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;position:relative;overflow:hidden}
+.current-card::before{content:"";position:absolute;width:180px;height:180px;right:-65px;top:-75px;border-radius:50%;background:radial-gradient(circle,rgba(138,92,255,.22),transparent 70%);pointer-events:none}
+.current-card:nth-child(2)::before{background:radial-gradient(circle,rgba(60,123,255,.2),transparent 70%)}
+.current-card:nth-child(3)::before{background:radial-gradient(circle,rgba(199,243,107,.16),transparent 70%)}
+.current-kicker{font-size:.72rem;letter-spacing:.12em;color:var(--ac);margin-bottom:14px;position:relative}
+.current-card h3{font:800 clamp(1.35rem,2.3vw,1.8rem)/1.05 var(--d);letter-spacing:-.035em;margin:0 0 12px;position:relative}
+.current-card p{color:var(--mu);font-size:.94rem;margin:0;position:relative;max-width:32rem}
+@media(max-width:760px){.current-grid{grid-template-columns:1fr}.current-card{min-height:190px;padding:22px}}
+.section-tracker{position:fixed;left:clamp(18px,2.8vw,42px);top:50%;transform:translateY(-50%);z-index:15;width:132px;color:var(--mu);font-size:11px;letter-spacing:.02em}
+.section-tracker .st-current{display:block;min-height:28px;margin:0 0 16px 14px;color:var(--ac);font-size:10px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;opacity:.95}
+.section-tracker ol{list-style:none;margin:0;padding:0;display:grid;gap:9px;border-left:1px solid rgba(243,244,248,.14)}
+.section-tracker a{position:relative;display:block;padding:3px 0 3px 13px;color:var(--mu);white-space:nowrap;transition:color .2s ease}
+.section-tracker a::before{content:"";position:absolute;left:-3px;top:50%;width:5px;height:5px;border-radius:50%;background:#50515e;transform:translateY(-50%);transition:background .2s,box-shadow .2s,transform .2s}
+.section-tracker a:hover,.section-tracker a.active{color:var(--tx)}
+.section-tracker a.active::before{background:var(--ac);box-shadow:0 0 9px rgba(199,243,107,.55);transform:translateY(-50%) scale(1.35)}
+.section-tracker .st-sub{display:block;margin:15px 0 0 14px;max-width:118px;color:rgba(160,164,180,.68);font-size:10px;line-height:1.5;letter-spacing:.02em}
+@media(max-width:1250px){.section-tracker{display:none}}
+@media(prefers-reduced-motion:reduce){.section-tracker a,.section-tracker a::before{transition:none}}
+
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas><div class="fb" id="fb"></div><div class="grain"></div>
+<div class="edge-atmosphere" aria-hidden="true"><span class="edge-mark one"></span><span class="edge-mark two"></span><span class="edge-caption">Curiosity · Analysis · Building</span></div>
+<aside class="section-tracker" aria-label="Page position">
+  <span class="st-current" id="section-current" aria-live="polite">Home</span>
+  <ol>
+    <li><a href="#home" data-track="home" class="active">Home</a></li>
+    <li><a href="#about" data-track="about">About</a></li>
+    <li><a href="#projects" data-track="projects">Projects</a></li>
+    <li><a href="#skills" data-track="skills">Skills</a></li>
+    <li><a href="#world" data-track="world">My world</a></li>
+    <li><a href="#journey" data-track="journey">Current build</a></li>
+    <li><a href="#contact" data-track="contact">Contact</a></li>
+  </ol>
+  <span class="st-sub" id="section-sub">Data. Systems. Ideas.</span>
+</aside>
+<header class="nav"><div class="w"><a class="brand" href="#home">Aman Lad</a>
+<nav class="links" aria-label="Main"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#world">My world</a><a href="#journey">Current build</a><a href="#contact">Contact</a></nav></div><div id="bar"></div></header>
+<main>
+<div class="w hero" id="home" data-s="0">
+<div class="tag rv">Aman Lad · Data Science · NMIMS MPSTME</div>
+<h1 class="rv" aria-label="Data. Systems. Ideas."><span>Data.</span><span>Systems.</span><span>Ideas.</span></h1>
+<p class="lede rv">I’m a Data Science student who likes turning questions into things that work: <b>analysis, software and a bit of design</b>. Mostly learning by building.</p>
+<div class="cta rv"><a class="btn p" href="#projects">Explore projects</a><a class="btn" href="#contact">Get in touch</a></div>
+<div class="scroll"><i></i>Scroll</div>
+</div>
+
+<section id="about" data-s="1"><div class="w"><h2 class="rv">Analytics, software, and the stuff in between.</h2>
+<div class="ab"><div class="rv">
+<p class="big">I turn <em>analysis into insight</em> to help people make better business decisions.</p>
+<p>I’m studying <b>MBA Tech in Data Science at NMIMS MPSTME</b> in Mumbai. The space I enjoy sits between analytics, software and practical problem-solving.</p>
+<p>Off the clock it’s competitive games, music, PC hardware, sneakers and a growing fragrance shelf. They’re how I notice detail, and they probably explain why I like polished interfaces.</p></div>
+<aside class="glass facts rv"><div><span>Studying</span><b>MBA Tech, Data Science</b></div><div><span>Where</span><b>NMIMS MPSTME, Vile Parle</b></div><div><span>Stage</span><b>Year 3, Semester 5</b></div><div><span>Career focus</span><b>Data &amp; BI analytics</b></div></aside></div></div></section>
+
+<section id="projects" data-s="2"><div class="w"><h2 class="rv">Four projects, opened up.</h2><div class="proj" id="pj"></div></div></section>
+
+<section id="skills" data-s="3"><div class="w"><h2 class="rv">Skills &amp; toolkit.</h2>
+<p class="skill-intro rv">A mix of data, business and technical foundations for turning questions into useful decisions and working solutions.</p>
+<div class="skill-grid">
+<article class="glass skill-card rv"><p class="skill-kicker">01 / Data &amp; programming</p><h3>Make sense of the numbers.</h3><p>Working with data, writing queries, exploring patterns and building analytical foundations.</p><div class="skill-tags"><span>Python</span><span>SQL</span><span>Pandas</span><span>NumPy</span><span>Statistics &amp; probability</span><span>Data cleaning</span><span>Exploratory data analysis</span><span>Machine learning fundamentals</span></div></article>
+<article class="glass skill-card rv"><p class="skill-kicker">02 / Analytics &amp; BI</p><h3>Make the answer clear.</h3><p>Turning analysis into readable reporting, useful metrics and visual explanations.</p><div class="skill-tags"><span>Excel</span><span>Power BI</span><span>Data visualisation</span><span>Dashboards &amp; reporting</span><span>KPI analysis</span><span>Data storytelling</span></div></article>
+<article class="glass skill-card rv"><p class="skill-kicker">03 / Business &amp; strategy</p><h3>Connect data to decisions.</h3><p>Understanding the business question behind the numbers and defining what a useful answer should support.</p><div class="skill-tags"><span>Business analysis</span><span>Problem framing</span><span>Requirements gathering</span><span>Critical thinking</span><span>Decision analysis</span><span>Process improvement</span><span>Strategic thinking</span></div></article>
+<article class="glass skill-card rv"><p class="skill-kicker">04 / Management &amp; communication</p><h3>Help people move forward.</h3><p>Skills that support collaborative work, clear recommendations and projects with practical outcomes.</p><div class="skill-tags"><span>Communication</span><span>Presentations</span><span>Stakeholder awareness</span><span>Team collaboration</span><span>Project planning</span><span>Time management</span><span>Documentation</span></div></article>
+<article class="glass skill-card rv"><p class="skill-kicker">05 / Engineering foundations</p><h3>Build with structure.</h3><p>Technical foundations that help keep work organised, reproducible and easier to maintain.</p><div class="skill-tags"><span>Data structures &amp; algorithms</span><span>C / C++ / Java</span><span>Git &amp; GitHub</span><span>Databases</span><span>Debugging</span><span>Application development</span><span>Responsible use of AI</span></div></article>
+</div></div></section>
+
+<section id="world" data-s="4"><div class="w"><h2 class="rv">Outside the notebook.</h2>
+<div class="wd">
+<div class="glass t rv"><h3>Competitive gaming</h3><p>Valorant, CS2 and GTA V. Esports and the systems behind them.</p></div>
+<div class="glass t rv"><h3>PC hardware</h3><p>Specs, builds and how the parts talk to each other.</p></div>
+<div class="glass t rv"><h3>Music</h3><p>Always looking for the next thing to put on.</p></div>
+<div class="glass t rv"><h3>Sneakers</h3><p>Silhouettes, colourways and detail.</p></div>
+<div class="glass t rv"><h3>Fragrances</h3><p>Notes, layers and the odd rabbit hole.</p></div></div></div></section>
+
+<section id="journey" data-s="5"><div class="w"><h2 class="rv">The current build.</h2>
+<p class="skill-intro rv">Not a five-year plan. Just the things shaping what I’m learning, making, and exploring right now.</p>
+<div class="current-grid">
+  <article class="glass current-card rv"><span class="current-kicker">01 / PERSONAL OPERATING SYSTEM</span><h3>Always in beta.</h3><p>Learning, experimenting, breaking things, and building better versions of what came before.</p></article>
+  <article class="glass current-card rv"><span class="current-kicker">02 / HOW I THINK</span><h3>Where data meets decisions.</h3><p>Interested in the space between analytical thinking, business strategy, and making information genuinely useful.</p></article>
+  <article class="glass current-card rv"><span class="current-kicker">03 / AREA OF INTEREST</span><h3>Emerging Technologies</h3><p>Curious about how data, AI, and new technologies can be applied to real-world problems and better decision-making.</p></article>
+</div></div></section>
+
+<section id="contact" data-s="6"><div class="w ct"><h2 class="rv">Let’s build something.</h2><p class="rv">Open to conversations about data, analytics roles and projects worth poking at.</p>
+<div class="cl rv" id="cl"></div></div></section>
+</main>
+<footer><div class="w"><span>© <span id="yr"></span> Aman Lad</span><button id="top">Back to top ↑</button></div></footer>
+
+<dialog id="dg" aria-labelledby="dt"><div class="dh"><button class="x" aria-label="Close project">✕</button><div class="cat" id="dc"></div><h3 id="dt"></h3><p id="db"></p></div><dl class="dl" id="dd"></dl></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ===== EDIT ME =====
+const CFG={github:"https://github.com/aman2k6",email:"aman.lad9020@gmail.com",linkedin:"https://www.linkedin.com/in/aman-lad-a9b294275/"};
+const P=(t)=>({ph:t}); // placeholder field
+const PROJECTS=[
+{cat:"Esports · Systems",title:"Esports Tournament Manager",st:"Team project · Dashboard, analytics &amp; testing",blurb:"A team-built tournament management system with an analytics dashboard. My contributions were the dashboard, analytics and testing.",
+ art:'<svg viewBox="0 0 200 140"><path d="M10 20h40v20h40M10 60h40V40M10 100h40v20h40M10 140h0M50 100V80h40M90 40v20h40v20M90 80h0M130 70h60"/><circle class="h" cx="190" cy="70" r="5"/></svg>',
+ f:[["Overview","A team-built tournament management system that keeps games, teams, players and matches in one place and turns tournament data into rankings, KPIs and charts."],["Problem","Running an esports tournament means tracking many connected records: who is playing, which teams are entered, what happened in each match, and how standings and prize money look. Handled manually, that is slow, error-prone and hard to see at a glance."],["My role","<b>Team project.</b> My individual contributions were the <b>dashboard</b>, the <b>analytics</b> and <b>testing</b>. The rest of the system, including the backend and authentication, was a team effort and is not claimed as solo work."],["Dashboard and analytics","<ul style='margin:0;padding-left:18px;display:grid;gap:4px'><li>KPI cards summarising tournaments, matches, players, teams and prize pool</li><li>Bar chart of the top 10 players by total kills</li><li>Donut chart showing prize money by team</li><li>Tournament filtering to focus the views</li><li>Manual data refresh</li></ul>"],["What the system includes","<ul style='margin:0;padding-left:18px;display:grid;gap:4px'><li>API endpoints for authentication, games, teams, players, matches and tournament analytics</li><li>A login endpoint that returns a JWT token</li><li>Tournament standings ranked by wins, losses and points</li><li>An interface for adding and deleting teams and players</li></ul>"],["Testing","Testing was one of my three areas of ownership, centred on the dashboard and analytics side of the system. I have not published test counts or results here, so none are claimed."],["Challenges and learning","Building analytics on top of a shared system means working from the data it exposes and presenting it so an organiser can read it quickly. It also showed me why testing matters when teams, players, matches and tournaments all depend on one another."],["Repository","<a href='https://github.com/vrishinarughani/esports-manager' target='_blank' rel='noreferrer' style='color:var(--ac)'>github.com/vrishinarughani/esports-manager ↗</a>"]]},
+{cat:"Statistics · Simulation",title:"Mumbai Metro Arrival Modelling",st:"Interactive prototype · source verification pending",blurb:"An interactive passenger-flow simulator for Mumbai Metro Lines 2A & 7. It uses preset ridership averages to generate illustrative 5-minute passenger counts; the underlying 628-day dataset has not yet been independently verified.",
+ art:'<svg viewBox="0 0 200 140"><path d="M10 100h180"/><circle cx="30" cy="60" r="4"/><circle cx="52" cy="85" r="4"/><circle class="h" cx="58" cy="40" r="4"/><circle cx="110" cy="70" r="4"/><circle cx="118" cy="30" r="4"/><circle cx="160" cy="55" r="4"/><circle cx="170" cy="90" r="4"/></svg>',
+ f:[["Overview","An interactive browser-based simulator exploring passenger flow on Mumbai Metro Lines 2A & 7. Users can switch between overall, weekday and weekend presets and adjust the simulation mode to see generated passenger counts."],["Model inputs","The HTML contains three hardcoded daily ridership figures: 226,740 overall, 251,324 for weekdays and 164,589 for weekends. These are converted into fixed 5-minute rates of 787, 873 and 571 respectively. The figures are presented in the prototype as MMRDA Lines 2A & 7 data, but the original data file and a direct source for the exact 628-day series are not included in the code."],["Simulation behaviour","The simulator generates illustrative counts in the browser using random values around the selected fixed rate. For these large rates, the code uses a normal approximation with standard deviation equal to the square root of the rate, rather than sampling from an exact Poisson distribution. The mode multipliers are 1.00 for normal, 1.40 for peak and 0.65 for weekend."],["Dataset provenance","The interface claims a 628-day dataset covering January 2024 to September 2025 and attributes it to MMRDA. However, no CSV/Excel rows, API call, download URL or dataset credentials are present in the HTML, so the exact dataset and its licence cannot currently be confirmed. The stated date range spans 639 calendar days if interpreted as 1 January 2024 through 30 September 2025 inclusive; the 628-day count needs clarification."],["What it demonstrates","The prototype demonstrates an interactive simulation workflow and how different assumed passenger-flow rates affect generated counts. It does not, by itself, validate those rates against observed 5-minute station-level arrivals or establish predictive accuracy."],["Current status","Interactive prototype built. Dataset attribution and the exact observation period remain unverified; the displayed rates should be treated as preset inputs, not independently confirmed measurements."],["Limitations and next steps","The simulator does not ingest the raw dataset, and its constant rates simplify real-world variation across stations and operating hours. To validate the model, link the original source file, check its date coverage and missing days, document how daily totals were converted to 5-minute rates, and compare generated counts with observed interval-level data."]]},
+{cat:"Data Science · Prototype",title:"Smart Health Risk Predictor",st:"Student prototype · not for medical use",blurb:"A student prototype exploring data-driven health-risk prediction. Educational only: not clinically validated and must not guide medical decisions.",
+ art:'<svg viewBox="0 0 200 140"><path d="M5 75h45l12-40 20 80 18-60 12 20h83"/><circle class="h" cx="82" cy="115" r="4"/></svg>',
+ f:[["Overview","A student prototype exploring how data and predictive modelling could be used to look at potential health-risk indicators."],["Disclaimer","<b>Educational prototype only.</b> It is not clinically validated and must not be used for any medical decision."],["Objective","To learn how a risk-prediction workflow fits together, from health-related data to a model that estimates risk, and how such outputs should be read with care."],["Dataset","Not specified in this write-up. A dataset will be named, with its source, before any results are shared."],["Preprocessing","Not detailed here. Work of this kind usually involves handling missing values and preparing features, but I am not stating which steps this prototype uses."],["Model","The specific algorithm is not stated here, so none is claimed."],["Evaluation","No metrics or accuracy figures are reported or implied."],["Limitations","Prediction from data is not diagnosis. Without clinical validation, representative data and careful evaluation, outputs from a student prototype cannot be trusted for health decisions."]]},
+{cat:"Cybersecurity · SIH 2026",title:"AI-Based Detection of Cyber Threats in Unidirectional IP Traffic",st:"Problem exploration · SIH 2026",blurb:"An early exploration of how passive network-traffic analysis could help identify potential cyber threats from PCAP and flow metadata, without sending traffic back to monitored hosts.",
+ art:'<svg viewBox="0 0 200 140"><path d="M100 12 151 32v35c0 30-20 49-51 62-31-13-51-32-51-62V32z"/><path class="h" d="M75 69h18l10-20 12 42 10-22h12"/><circle cx="100" cy="69" r="35"/></svg>',
+ f:[["Problem statement","SIH 2026 problem statement SIH26145, from NTRO, focuses on detecting cyber threats in unidirectional IP traffic. The monitoring system must remain passive and work from available traffic captures or flow metadata."],["Proposed direction","Explore traffic-feature extraction and machine-learning or anomaly-detection approaches to flag suspicious patterns for further investigation. The final method will depend on dataset availability and evaluation."],["Passive-monitoring constraint","The system must not send packets, initiate handshakes, query hosts, block traffic or communicate back. Detection should rely only on sources such as PCAP, NetFlow, IPFIX, sFlow or related metadata."],["Current status","In progress. This is an SIH 2026 project being planned; a completed implementation or working detection model is not claimed yet."],["Validation plan","Identify suitable, documented traffic datasets; establish a baseline; evaluate detection quality with appropriate metrics; and document limitations and false-positive risks. No performance results are claimed at this stage."],["Next steps","Confirm the data source, build a reproducible feature-extraction pipeline, test a baseline detector, and develop a demonstrable prototype while preserving the passive-monitoring requirement."]]}];
+// ===================
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+$("#yr").textContent=new Date().getFullYear();$("#top").onclick=()=>scrollTo({top:0,behavior:"smooth"});
+// projects
+const dg=$("#dg");
+$("#pj").innerHTML=PROJECTS.map((p,i)=>`<button class="glass pj rv" data-i="${i}" aria-label="Open case study: ${p.title}"><div class="art">${p.art}</div><div class="pb"><span class="cat">${p.cat}</span><h3>${p.title}</h3><span class="st">${p.st}</span><p>${p.blurb}</p><span class="more">Open dossier →</span></div></button>`).join("");
+$$(".pj").forEach(c=>{c.onclick=()=>{const p=PROJECTS[c.dataset.i];$("#dc").textContent=p.cat;$("#dt").textContent=p.title;$("#db").textContent=p.blurb;
+ $("#dd").innerHTML=p.f.map(([k,v])=>`<div><dt>${k}</dt><dd>${v.ph?`<span class="ph">[Add: ${v.ph}]</span>`:`<span class="val">${v}</span>`}</dd></div>`).join("");dg.showModal();dg.scrollTop=0};
+ if(!reduce){c.onpointermove=e=>{const r=c.getBoundingClientRect();c.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*5+"deg");c.style.setProperty("--rx",(.5-(e.clientY-r.top)/r.height)*4+"deg")};c.onpointerleave=()=>{c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg")}}});
+dg.querySelector(".x").onclick=()=>dg.close();dg.onclick=e=>{if(e.target===dg)dg.close()};
+// Skills are presented as a static toolkit; no scroll-driven stages or pinned sequence.
+// contact
+const L=(h,t)=>h?`<a class="btn ${t==="E"?"p":""}" href="${h}" target="_blank" rel="noreferrer">`:"";
+$("#cl").innerHTML=(CFG.email?`<a class="btn p" href="mailto:${CFG.email}">Email</a>`:`<span class="btn ph">[Add: your email]</span>`)+`<a class="btn" href="${CFG.github}" target="_blank" rel="noreferrer">GitHub</a>`+(CFG.linkedin?`<a class="btn" href="${CFG.linkedin}" target="_blank" rel="noreferrer">LinkedIn</a>`:`<span class="btn ph">[Add: LinkedIn URL]</span>`);
+// reveal, nav highlight, progress
+const io=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});$$(".rv").forEach(e=>io.observe(e));
+const secs=$$("[data-s]"),ln=$$(".links a");let cur=0;
+function upd(){const h=document.documentElement,p=scrollY/Math.max(1,h.scrollHeight-innerHeight);$("#bar").style.transform=`scaleX(${p})`;
+ let c=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.45)c=i});cur=c;ln.forEach((a,i)=>a.classList.toggle("on",i===c))}
+addEventListener("scroll",upd,{passive:true});upd();
+// The left tracker replaces the top navigation once the visitor leaves Home.
+const topNav=document.querySelector('header.nav');
+function syncTopNav(){topNav.classList.toggle('nav-away',window.scrollY>Math.max(120,window.innerHeight*.55));}
+addEventListener('scroll',syncTopNav,{passive:true});syncTopNav();
+// 3D
+(function(){
+ let R;try{R=new THREE.WebGLRenderer({canvas:$("#gl"),antialias:innerWidth>700,alpha:true})}catch(e){$("#gl").style.display="none";$("#fb").style.display="block";return}
+ const mob=innerWidth<700;R.setPixelRatio(Math.min(devicePixelRatio,mob?1.25:2));
+ const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(50,1,.1,50);cam.position.z=7;
+ const g=new THREE.Group();sc.add(g);
+ const core=new THREE.Mesh(new THREE.IcosahedronGeometry(1.5,mob?1:2),new THREE.MeshStandardMaterial({color:0x14122a,metalness:.95,roughness:.16,flatShading:true}));
+ const wire=new THREE.Mesh(new THREE.IcosahedronGeometry(1.75,1),new THREE.MeshBasicMaterial({color:0x8a5cff,wireframe:true,transparent:true,opacity:.28}));
+ const ring=new THREE.Mesh(new THREE.TorusGeometry(2.5,.012,8,120),new THREE.MeshBasicMaterial({color:0xc7f36b,transparent:true,opacity:.6}));ring.rotation.x=1.2;
+ g.add(core,wire,ring);
+ const sat=[];for(let i=0;i<4;i++){const m=new THREE.Mesh(new THREE.OctahedronGeometry(.16),new THREE.MeshStandardMaterial({color:0xdde3ff,metalness:1,roughness:.2}));g.add(m);sat.push(m)}
+ sc.add(new THREE.AmbientLight(0x4a4f8a,.6));
+ const L1=new THREE.PointLight(0x8a5cff,3.5,30);L1.position.set(4,3,4);const L2=new THREE.PointLight(0x3c7bff,3,30);L2.position.set(-4,-2,3);const L3=new THREE.PointLight(0xc7f36b,1.2,20);L3.position.set(0,-4,2);sc.add(L1,L2,L3);
+ const X=[2.1,-2.3,2.2,-2.4,2.3,-2.1,0],S=[1,.8,.75,.7,.85,.7,1.2],C=[0x8a5cff,0x3c7bff,0x8a5cff,0x3c7bff,0xc7f36b,0x8a5cff,0x8a5cff];
+ function size(){R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()}size();addEventListener("resize",size);
+ let mx=0,my=0,t=0,last=performance.now();addEventListener("pointermove",e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+ const col=new THREE.Color(),wide=()=>innerWidth>900;
+ (function loop(now){requestAnimationFrame(loop);const dt=Math.min((now-last)/1e3,.1);last=now;if(!reduce)t+=dt;const k=Math.min(1,dt*3);
+  const sp=scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight);
+  g.position.x+=((wide()?X[cur]:0)-g.position.x)*k;g.position.y+=((reduce?0:Math.sin(t*.9)*.15)-(mob?.8:0)*(cur>0?0:0)-g.position.y)*k;
+  const s=S[cur]*(mob?.8:1);g.scale.setScalar(g.scale.x+(s-g.scale.x)*k);
+  g.rotation.y=t*.2+sp*6+mx*.9;g.rotation.x+=((my*.6+sp*1.5)-g.rotation.x)*k;wire.rotation.y=-t*.15;ring.rotation.z=t*.3;
+  sat.forEach((m,i)=>{const a=t*.6+i*1.57;m.position.set(Math.cos(a)*2.5,Math.sin(a)*2.5*Math.cos(1.2),Math.sin(a)*2.5*Math.sin(1.2))});
+  col.setHex(C[cur]);wire.material.color.lerp(col,k);L1.color.lerp(col,k*.5);
+  $("#gl").style.opacity=cur===0?1:(mob?.35:.75);R.render(sc,cam)})(last);
+})();
+</script>
+
+<script>
+/* Active section and subsection tracker. Updates from scroll position; navigation remains ordinary anchor links. */
+(()=>{
+ const aside=document.querySelector('.section-tracker');
+ if(!aside) return;
+ const current=document.getElementById('section-current');
+ const sub=document.getElementById('section-sub');
+ const links=[...aside.querySelectorAll('[data-track]')];
+ const sections=[...document.querySelectorAll('main > [id]')];
+ const names={home:'Home',about:'About',projects:'Projects',skills:'Skills',world:'My world',journey:'Current build',contact:'Contact'};
+ const defaults={home:'Data. Systems. Ideas.',about:'Analytics, software, and the stuff in between.',projects:'Projects and case studies',skills:'Skills & toolkit',world:'Outside the notebook',journey:'Always in beta · Where data meets decisions',contact:'Let’s build something'};
+ let active='home';
+ function setActive(id){
+   if(!id || !names[id]) return;
+   active=id;
+   links.forEach(a=>{const on=a.dataset.track===id;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+   current.textContent=names[id];
+   sub.textContent=defaults[id]||'';
+ }
+ const sectionObserver=new IntersectionObserver(entries=>{
+   const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);
+   if(visible.length) setActive(visible[0].target.id);
+ },{rootMargin:'-28% 0px -48% 0px',threshold:[0,.1,.25,.5,.75]});
+ sections.forEach(el=>sectionObserver.observe(el));
+ // When a project card or a data-work stage becomes the focal item, reflect that subsection too.
+ const detailObserver=new IntersectionObserver(entries=>{
+   const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);
+   if(!visible.length) return;
+   const el=visible[0].target;
+   if(el.closest('#projects')){const title=el.querySelector('h3')?.textContent?.trim();if(title)sub.textContent=title;}
+   else if(el.matches('.tl > div')){const title=el.querySelector('h3')?.textContent?.trim();if(title)sub.textContent=title;}
+   else if(el.matches('.stb')){const label=el.innerText.replace(/\s+/g,' ').trim();if(label)sub.textContent=label;}
+ },{rootMargin:'-35% 0px -50% 0px',threshold:[.15,.35,.6]});
+ document.querySelectorAll('#pj .pj, .tl > div, #sts .stb').forEach(el=>detailObserver.observe(el));
+ links.forEach(a=>a.addEventListener('click',()=>setActive(a.dataset.track)));
+})();
+</script>
+</body>
+</html>
